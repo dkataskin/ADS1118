@@ -201,7 +201,7 @@ uint16_t ADS1118::getADCValue(uint8_t inputs) {
 	// Start new communication cycle.
 	// App note states we need to wait min 100uS from CS going low to first clock edge.
 	digitalWrite(cs, LOW);
-	delayMicroseconds(1000);
+	delayMicroseconds(500);
 
 	// Send over the config values using short 16-bit transmission cycle.
 #if defined(__AVR__)	
@@ -215,7 +215,7 @@ uint16_t ADS1118::getADCValue(uint8_t inputs) {
 
 	// End communication.
 	// App note states we need to wait min 100uS from last cock edge to CS going high.
-	delayMicroseconds(1000);
+	delayMicroseconds(500);
 	digitalWrite(cs, HIGH);
 
 
@@ -228,7 +228,7 @@ uint16_t ADS1118::getADCValue(uint8_t inputs) {
 		// Start new communication cycle.
 		// App note states we need to wait min 100uS from CS going low to first clock edge.
 		digitalWrite(cs, LOW);
-		delayMicroseconds(1000);
+		delayMicroseconds(500);
 
 		// We don't need to do the full cycle.
 		// Send empty config which will be ignored and read the data from the last conversion.
@@ -242,7 +242,7 @@ uint16_t ADS1118::getADCValue(uint8_t inputs) {
 
 		// End communication.
 		// App note states we need to wait min 100uS from last cock edge to CS going high.
-		delayMicroseconds(1000);
+		delayMicroseconds(500);
 		digitalWrite(cs, HIGH);
 	}
 
